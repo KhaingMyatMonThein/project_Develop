@@ -24,8 +24,7 @@ import LightbulbIcon from '@mui/icons-material/Lightbulb';
 import VideocamIcon from '@mui/icons-material/Videocam';
 import RateReviewIcon from '@mui/icons-material/RateReview';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
-import { Link, useNavigate } from 'react-router-dom';
-import { Login } from '@mui/icons-material';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -33,11 +32,12 @@ const Navbar = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const navigate = useNavigate();
+  const location = useLocation();
 
   const menuItems = [
     { text: 'Home', icon: <HomeIcon />, link: '/' },
     { text: 'Services', icon: <BuildIcon />, link: '/services' },
-    { text: 'Solutions', icon: <LightbulbIcon />, link: '/solutions' },
+    { text: 'About Us', icon: <LightbulbIcon />, link: '/aboutus' },
     { text: 'Vlog', icon: <VideocamIcon />, link: '/vlog' },
     { text: 'Reviews', icon: <RateReviewIcon />, link: '/reviews' },
     { text: 'Contact Us', icon: <ContactMailIcon />, link: '/contactus' },
@@ -54,24 +54,25 @@ const Navbar = () => {
   const handleLoginModalClose = () => setLoginModalOpen(false);
 
   const handleLogin = () => {
-    navigate("/Login");
+    navigate("/login");
     handleLoginModalClose();
   };
 
   return (
-    <AppBar position="fixed" sx={{ backgroundColor: '#fff', color: 'black', zIndex: 1300 }}>
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
+    <AppBar position="fixed" sx={{ backgroundColor: '#fff', color: 'black', zIndex: 1300, height: 80 }}>
+      <Container maxWidth="xl" sx={{ display: 'flex', justifyContent: 'space-between', pl: 0 }}>
+        <Toolbar disableGutters sx={{ display: 'flex', justifyContent: 'space-between', pl: 0 }}>
           <Typography
             variant="h6"
-            component={Link}  // Use Link here
-            to="/"             // Link to the home page
+            component={Link}  
+            to="/"             
             sx={{
-              mr: 2,
+              ml: 0,
               display: { xs: 'none', md: 'flex' },
               fontWeight: 700,
-              color: '#ff9800',
-              textDecoration: 'none', // Remove underline from link
+              color: '#e68900',
+              textDecoration: 'none', 
+              fontSize: 20, 
             }}
           >
             AI Solution
@@ -85,7 +86,7 @@ const Navbar = () => {
                 color="inherit"
                 aria-label="menu"
                 onClick={toggleDrawer(true)}
-                sx={{ mr: 2 }}
+                sx={{ ml: 2 }}
               >
                 <MenuIcon />
               </IconButton>
@@ -98,9 +99,20 @@ const Navbar = () => {
                 >
                   <List>
                     {menuItems.map((item) => (
-                      <ListItem button key={item.text} component={Link} to={item.link}>
+                      <ListItem 
+                        button 
+                        key={item.text} 
+                        component={Link} 
+                        to={item.link} 
+                        sx={{
+                          backgroundColor: location.pathname === item.link ? '#f0f0f0' : '',
+                          '&:hover': {
+                            backgroundColor: '#f0f0f0',
+                          },
+                        }}
+                      >
                         <ListItemIcon>{item.icon}</ListItemIcon>
-                        <ListItemText primary={item.text} />
+                        <ListItemText primary={item.text} sx={{ fontSize: 16 }} />
                       </ListItem>
                     ))}
                   </List>
@@ -117,9 +129,16 @@ const Navbar = () => {
               {menuItems.map((item) => (
                 <Button
                   key={item.text}
-                  component={Link} // Use Link here
-                  to={item.link}    // Set the link
-                  sx={{ my: 2, color: 'black', display: 'block', textTransform: 'capitalize' }} 
+                  component={Link}  
+                  to={item.link}    
+                  sx={{
+                    my: 2, 
+                    color: location.pathname === item.link ? '#e68900' : 'black', 
+                    display: 'block', 
+                    textTransform: 'capitalize',
+                    fontWeight: location.pathname === item.link ? 'bold' : 'normal',
+                    fontSize: 18, 
+                  }} 
                 >
                   {item.text}
                 </Button>
@@ -158,8 +177,13 @@ const Navbar = () => {
           </Typography>
           <Button
             variant="contained"
-            color="primary"
-            sx={{ mt: 2 }}
+            sx={{
+              mt: 2,
+              backgroundColor: '#e68900',
+              '&:hover': {
+                backgroundColor: '#e68900',
+              },
+            }}
             onClick={handleLogin}
           >
           Login
