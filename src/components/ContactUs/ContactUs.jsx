@@ -53,13 +53,7 @@ const ContactUs = () => {
             margin="normal"
             variant="outlined"
           />
-          <Button variant="contained" component="label">
-            Attach your file
-            <input type="file" hidden />
-          </Button>
-          <Typography variant="body2" color="textSecondary">
-            up to 10MB
-          </Typography>
+        
 
           <Button variant="contained" color="primary" sx={{ mt: 3 }}>
             Submit Now

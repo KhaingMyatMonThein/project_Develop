@@ -97,7 +97,7 @@ const Footer = () => {
 
         <Box sx={{ mt: 4, textAlign: 'center' }}>
           <Typography variant="body2" sx={{ color: 'grey' }}>
-           Khaing Myat Mon Thein
+           AI Solution
           </Typography>
           <Typography variant="body2" sx={{ color: 'grey' }}>
             © 2025 All rights reserved.
