@@ -47,7 +47,7 @@ const Vlog = () => {
           component="h1"
           sx={{ fontWeight: "bold", mb: 2 }}
         >
-          Vlog
+          Blog
         </Typography>
         <Typography variant="body1">
           Emerging technologies such as artificial intelligence, blockchain, and

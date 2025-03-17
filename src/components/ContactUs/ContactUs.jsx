@@ -27,7 +27,7 @@ const ContactUs = () => {
       <Grid container spacing={3}>
         <Grid item xs={12} md={6}>
           <Typography variant="h6" sx={{ mb: 2, color: '#E67E22' }}>
-            01. Tell Us About Yourself
+           Tell Us About Yourself
           </Typography>
           <TextField fullWidth label="First Name" margin="normal" variant="outlined" />
           <TextField fullWidth label="Last Name" margin="normal" variant="outlined" />
@@ -37,13 +37,13 @@ const ContactUs = () => {
           <TextField fullWidth label="Role" margin="normal" variant="outlined" />
 
           <Typography variant="h6" sx={{ mt: 3, mb: 2, color: '#E67E22' }}>
-            02. What Can We Help You With?
+          What Can We Help You With?
           </Typography>
           <TextField fullWidth label="Subject" margin="normal" variant="outlined" />
           <TextField fullWidth label="Project Budget" margin="normal" variant="outlined" />
 
           <Typography variant="h6" sx={{ mt: 3, mb: 2, color: '#E67E22' }}>
-            03. Tell Us About Your Project
+           Tell Us About Your Project
           </Typography>
           <TextField
             fullWidth
