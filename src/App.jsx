@@ -12,6 +12,8 @@ import DashboardPage from './admin/DashboardPage';
 import LoginPage from './admin/LoginPage'; 
 import Sidebar from './admin/Sidebar';
 import UserPage from './admin/UserPage';
+import BlogM from './admin/BlogM';
+import AdminLayout from './admin/AdminLayout';
 
 function App() {
   return (
@@ -78,20 +80,34 @@ function App() {
               </>
             }
           />
+
+         {/* Admin routes */}
          <Route path="/admin/loginPage" element={<LoginPage />} />
-        <Route path="/admin/dashboard" element={
-          <div>
-            <Sidebar />
-            <DashboardPage />
-          </div>
-        } />
-        <Route path="/admin/users" element={
-          <div>
-            <Sidebar />
-            <UserPage />
-          </div>
-        } />
-      </Routes>
+          <Route
+            path="/admin/dashboard"
+            element={
+              <AdminLayout>
+                <DashboardPage />
+              </AdminLayout>
+            }
+          />
+          <Route
+            path="/admin/users"
+            element={
+              <AdminLayout>
+                <UserPage />
+              </AdminLayout>
+            }
+          />
+          <Route
+            path="/admin/blogs"
+            element={
+              <AdminLayout>
+                <BlogM />
+              </AdminLayout>
+            }
+          />
+        </Routes>
       </div>
     </Router>
   );

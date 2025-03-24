@@ -1,9 +1,11 @@
 import React from 'react';
 import { Box, Typography, Button, Grid, Card, CardContent, CardMedia } from '@mui/material';
 import { Link } from 'react-router-dom';
+import Layout from '../Layout';
 
 const Home = () => {
   return (
+    <Layout>
     <Box>
       {/* Hero Section */}
       <Box
@@ -321,6 +323,7 @@ const Home = () => {
             </Button>
         </Box>
     </Box>
+    </Layout>
   );
 };
 

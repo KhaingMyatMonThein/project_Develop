@@ -1,0 +1,93 @@
+/* src/admin/LoginPage.css */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #fff; /* White background */
+}
+
+.login-form {
+    background: #fff; /* White background */
+    padding: 2rem;
+    border-radius: 25px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    text-align: center;
+    border: 1px solid #ff9900; /* Orange border */
+}
+
+.login-logo {
+    width: 100px;
+}
+
+.login-form h2 {
+    margin-bottom: 1.5rem;
+    color: #ff9900;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.input-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ff9900; 
+}
+
+.login-form input[type="email"],
+.login-form input[type="password"] {
+    padding: 0.75rem 2.5rem;
+    border: none; 
+    border-radius: 20px; 
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1rem;
+    background: #f0f2f5;
+    color: #333;
+}
+
+.login-form input[type="email"]:focus,
+.login-form input[type="password"]:focus {
+    background: #fff; /* White background on focus */
+    outline: none;
+    border: 1px solid #ff9900; /* Orange border on focus */
+}
+
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.remember-forgot a {
+    color: #ff9900; /* Orange link text */
+    text-decoration: none;
+}
+
+.login-form button {
+    background: #ff9900; /* Orange button background */
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background 0.3s;
+    width: 100%;
+}
+
+.login-form button:hover {
+    background: #ff6600; /* Darker orange on hover */
+}
+
+.error-message {
+    color: red;
+    margin-top: 0.5rem;
+}

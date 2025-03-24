@@ -1,0 +1,21 @@
+.layout {
+    position: relative; /* Ensure correct stacking context */
+    min-height: 100vh; /* Ensure full viewport height */
+  }
+  
+  .chatbot-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 1000; /* Ensure it's on top of everything */
+    background-color: white; /* Add background color */
+    border-radius: 50%; /* Make it round */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add a shadow */
+    padding: 5px; /* Add some padding */
+  }
+  
+  .chatbot-icon:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+  }
+  
