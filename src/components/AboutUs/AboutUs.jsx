@@ -11,11 +11,10 @@ import {
   Paper
 } from '@mui/material';
 import { styled } from '@mui/system';
-import PeopleIcon from '@mui/icons-material/People'; // Example icon
-import LightbulbIcon from '@mui/icons-material/Lightbulb'; // Example icon
-import ThumbUpIcon from '@mui/icons-material/ThumbUp'; // Example icon
+import PeopleIcon from '@mui/icons-material/People'; 
+import LightbulbIcon from '@mui/icons-material/Lightbulb'; 
+import ThumbUpIcon from '@mui/icons-material/ThumbUp'; 
 
-// Styled Button
 const ServiceButton = styled(Button)(({ theme }) => ({
   backgroundColor: "#ff9800",
   color: "white",
@@ -34,12 +33,12 @@ const AboutUs = () => {
   useEffect(() => {
     setTimeout(() => {
       setAnimate(true);
-    }, 500); // Delay animation by 500ms
+    }, 500); 
   }, []);
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', backgroundColor: '#f7f7f7' }}>
-      {/* Hero Section */}
+  
       <Box
         sx={{
           backgroundImage: `url(service-white.jpg)`,

@@ -82,7 +82,7 @@ const GetStartedButton = styled(Link)(({ theme }) => ({
   },
 }));
 
-// Component
+
 const Services = () => {
   const [tabValue, setTabValue] = React.useState(0);
 
@@ -322,7 +322,7 @@ const Services = () => {
               >
                 <CardMedia
                   component="img"
-                  image={post.image} // Use public path here
+                  image={post.image} 
                   alt={post.title}
                   sx={{ width: "40%", height: "200px", objectFit: "cover" }}
                 />

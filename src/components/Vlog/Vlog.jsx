@@ -12,7 +12,7 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/system';
 
-// Styled Button
+
 const EventButton = styled(Button)(({ theme }) => ({
   backgroundColor: "#ff9800",
   color: "white",
@@ -26,7 +26,7 @@ const EventButton = styled(Button)(({ theme }) => ({
 const Vlog = () => {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh',marginTop: "70px" }}>
-      {/* Hero Section */}
+
       <Box
         sx={{
           backgroundImage: `url(service-white.jpg)`,

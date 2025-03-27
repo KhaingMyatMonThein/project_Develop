@@ -19,11 +19,11 @@ function Chatbot({ onClose }) {
   const handleSendMessage = async () => {
     if (!input.trim()) return;
 
-    // Add user message
+
     const userMessage = { role: 'user', content: input };
     setMessages(prev => [...prev, userMessage]);
 
-    // Make API call to ChatFree
+
     try {
       const response = await axios.post('https://chatfree.io/api/message', {
         message: input,
@@ -44,7 +44,7 @@ function Chatbot({ onClose }) {
     <div className="chatbot-container">
       <div className="chatbot-header">
         <img src="/chatbot-logo.svg" alt="Drift University Bot" className="chatbot-logo" />
-        <span>Drift University Bot</span>
+        <span>AI Solution Bot</span>
       </div>
 
       <div className="chatbot-messages">

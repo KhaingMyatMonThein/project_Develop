@@ -94,9 +94,9 @@ const PricingPlans = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "flex-start",
-        flexWrap: "nowrap", // Prevent wrapping to the next line
+        flexWrap: "nowrap", 
         padding: 3,
-        width: "100%", // Ensure it fits within its parent container
+        width: "100%",
         overflowX: "auto",  
       }}
     >

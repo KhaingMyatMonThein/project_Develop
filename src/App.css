@@ -38,6 +38,15 @@ input {
 button {
   margin-left: 10px;
 }
+@keyframes scroll-left {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

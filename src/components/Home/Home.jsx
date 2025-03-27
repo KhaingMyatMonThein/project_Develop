@@ -154,7 +154,7 @@ const Home = () => {
             <Grid container spacing={3} alignItems="center">
                 <Grid item xs={12} md={6}>
                 <img
-                    src="/disscussion.jpg" // Replace with your image path
+                    src="/disscussion.jpg"
                     alt="Powerful and Easy"
                     style={{ width: '100%', borderRadius: '8px' }}
                 />
@@ -193,7 +193,7 @@ const Home = () => {
               <CardMedia
                 component="img"
                 height="200"
-                image="/home1.jpg" // Replace with your image path
+                image="/home1.jpg" 
                 alt="News 1"
               />
               <CardContent>
@@ -210,13 +210,13 @@ const Home = () => {
             </Card>
           </Grid>
 
-          {/* News Card 2 */}
+     
           <Grid item xs={12} sm={6} md={4}>
             <Card sx={{ height: '100%' }}>
               <CardMedia
                 component="img"
                 height="200"
-                image="/home2.jpg" // Replace with your image path
+                image="/home2.jpg" 
                 alt="News 2"
               />
               <CardContent>
@@ -233,13 +233,13 @@ const Home = () => {
             </Card>
           </Grid>
 
-          {/* News Card 3 */}
+   
           <Grid item xs={12} sm={6} md={4}>
             <Card sx={{ height: '100%' }}>
               <CardMedia
                 component="img"
                 height="200"
-                image="/home3.png" // Replace with your image path
+                image="/home3.png"
                 alt="News 3"
               />
               <CardContent>

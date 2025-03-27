@@ -1,4 +1,4 @@
-// src/admin/AdminLayout.jsx
+
 import React from 'react';
 import Sidebar from './Sidebar';
 import { Box } from '@mui/material';
@@ -12,8 +12,8 @@ const AdminLayout = ({ children }) => {
         sx={{
           flexGrow: 1,
           p: 3,
-          bgcolor: '#fff', // White background for the content area
-          color: '#333',    // Dark text for better readability
+          bgcolor: '#fff', 
+          color: '#333',  
         }}
       >
         {children}
