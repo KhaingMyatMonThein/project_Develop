@@ -1,80 +1,127 @@
 import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
-import ReactMarkdown from 'react-markdown';
-import './Chatbot.css';
+import './ChatBot.css';
 
-function Chatbot({ onClose }) {
-  const [messages, setMessages] = useState([]);
+const ChatBot = ({ onClose }) => {
+  const [messages, setMessages] = useState([
+    { content: "Hi! I'm your AI assistant. How can I help you today?", isBot: true }
+  ]);
   const [input, setInput] = useState('');
-  const chatboxRef = useRef(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const messagesEndRef = useRef(null);
 
   const scrollToBottom = () => {
-    chatboxRef.current?.scrollIntoView({ behavior: "smooth" });
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
 
-  const handleSendMessage = async () => {
-    if (!input.trim()) return;
+  // Rate limiting
+  const [requestQueue, setRequestQueue] = useState([]);
+  const [isProcessing, setIsProcessing] = useState(false);
 
+  const processQueue = async () => {
+    if (isProcessing || requestQueue.length === 0) return;
+    setIsProcessing(true);
 
-    const userMessage = { role: 'user', content: input };
-    setMessages(prev => [...prev, userMessage]);
-
+    const { message, resolve, reject } = requestQueue[0];
+    setRequestQueue(prev => prev.slice(1));
 
     try {
-      const response = await axios.post('https://chatfree.io/api/message', {
-        message: input,
-        bot: 'default'
-      });
-
-      const aiMessage = { role: 'bot', content: response.data.response };
-      setMessages(prev => [...prev, aiMessage]);
-
-    } catch (error) {
-      console.error('Error:', error);
+      const response = await axios.post(
+        'https://api.openai.com/v1/chat/completions',
+        {
+          model: "gpt-3.5-turbo",
+          messages: [{ role: "user", content: message }],
+          temperature: 0.7,
+        },
+        {
+          headers: {
+            'Authorization': `Bearer ${process.env.REACT_APP_OPENAI_API_KEY}`,
+            'Content-Type': 'application/json'
+          }
+        }
+      );
+      resolve(response.data.choices[0].message.content);
+    } catch (err) {
+      reject(err);
+    } finally {
+      setIsProcessing(false);
     }
+  };
 
+  useEffect(() => {
+    processQueue();
+  }, [requestQueue, isProcessing]);
+
+  const addToQueue = (message) => {
+    return new Promise((resolve, reject) => {
+      setRequestQueue(prev => [...prev, { message, resolve, reject }]);
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!input.trim() || loading) return;
+
+    setMessages(prev => [...prev, { content: input, isBot: false }]);
     setInput('');
+    setLoading(true);
+    setError('');
+
+    try {
+      const botResponse = await addToQueue(input);
+      setMessages(prev => [...prev, { content: botResponse, isBot: true }]);
+    } catch (err) {
+      if (err.response && err.response.status === 429) {
+        setError('Too many requests. Please wait a moment and try again.');
+      } else {
+        setError('Sorry, I encountered an error. Please try again.');
+      }
+      console.error('API Error:', err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <div className="chatbot-container">
-      <div className="chatbot-header">
-        <img src="/chatbot-logo.svg" alt="Drift University Bot" className="chatbot-logo" />
-        <span>AI Solution Bot</span>
+    <div className="chat-container">
+      <div className="chat-header">
+        <h3>AI Assistant</h3>
+        <button className="close-button" onClick={onClose}>
+          ×
+        </button>
       </div>
 
-      <div className="chatbot-messages">
+      <div className="messages-container">
         {messages.map((message, index) => (
-          <div key={index} className={`message ${message.role}`}>
-            <ReactMarkdown>{message.content}</ReactMarkdown>
+          <div key={index} className={`message ${message.isBot ? 'bot' : 'user'}`}>
+            <div className="avatar">{message.isBot ? '🤖' : '👤'}</div>
+            <div className="content">{message.content}</div>
           </div>
         ))}
-        <div ref={chatboxRef} />
+        <div ref={messagesEndRef} />
       </div>
 
-      <div className="chatbot-input">
-        <input type="text" placeholder="Reply to Applinks Bot" value={input} onChange={e => setInput(e.target.value)} />
-        <div className="chatbot-actions">
-          <span role="img" aria-label="emoji">😃</span>
-          <span>GIF</span>
-          <span>📎</span>
-        </div>
-      </div>
+      {error && <div className="error-message">{error}</div>}
 
-      <div className="chatbot-footer">
-        <span>Chat ⚡ by Drift</span>
-        <a href="/privacy-policy">View our privacy policy here</a>
-      </div>
-
-      <button className="chatbot-close-button" onClick={onClose}>
-        X
-      </button>
+      <form onSubmit={handleSubmit} className="input-area">
+        <input
+          type="text"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder="Type your message..."
+          disabled={loading}
+        />
+        <button type="submit" disabled={loading}>
+          {loading ? 'Sending...' : 'Send'}
+        </button>
+      </form>
     </div>
   );
-}
+};
 
-export default Chatbot;
+export default ChatBot;

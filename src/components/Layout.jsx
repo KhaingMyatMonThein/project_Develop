@@ -15,11 +15,15 @@ function Layout({ children }) {
 
       {/* Chatbot Icon */}
       <div className="chatbot-icon" onClick={toggleChatbot}>
-        <img src="/chatbot-icon.svg" alt="Chatbot" width="50" height="50" />
+        <img src="./roboticon.jpg" alt="Chatbot" width="50" height="50" />
       </div>
 
       {/* Chatbot Component */}
-      {isChatbotVisible && <Chatbot onClose={toggleChatbot} />}
+      {isChatbotVisible && (
+        <div className="chatbot-dialog">
+          <Chatbot onClose={toggleChatbot} />
+        </div>
+      )}
     </div>
   );
 }
