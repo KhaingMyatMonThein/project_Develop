@@ -73,7 +73,7 @@ const AboutUs = () => {
           Our Story
         </Typography>
         <Typography variant="body1" paragraph sx={{ maxWidth: '800px', mx: 'auto', fontSize: '1.2rem' }}>
-          Founded in [2025], AI Solution Company was born from a shared vision of creating a world where AI is accessible and beneficial to all. We started as a small group of researchers and engineers with a deep passion for AI. Over the years, we've grown into a leading AI solutions provider, partnering with businesses across various industries to solve their most pressing challenges.
+          Founded in [2020], AI Solution Company was born from a shared vision of creating a world where AI is accessible and beneficial to all. We started as a small group of researchers and engineers with a deep passion for AI. Over the years, we've grown into a leading AI solutions provider, partnering with businesses across various industries to solve their most pressing challenges.
         </Typography>
         <Typography variant="body1" paragraph sx={{ maxWidth: '800px', mx: 'auto', fontSize: '1.2rem' }}>
           We believe in a collaborative approach, working closely with our clients to understand their unique needs and develop tailored AI solutions that deliver measurable results.
@@ -144,7 +144,7 @@ const AboutUs = () => {
           <Grid item xs={6} sm={4} md={3}>
             <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', backgroundColor: '#fff', borderRadius: 2, boxShadow: '0px 0px 5px rgba(0,0,0,0.05)' }}>
               <CardContent sx={{ textAlign: 'center', p: 3 }}>
-                <Avatar alt="Databricks" src="/static/images/partners/databricks.png" sx={{ width: 100, height: 100, mx: 'auto', mb: 1 }} />
+                <Avatar alt="Databricks" src="/channels4_profile.jpg" sx={{ width: 100, height: 100, mx: 'auto', mb: 1 }} />
                 <Typography variant="subtitle1" sx={{ fontSize: '1.3rem' }}>Databricks</Typography>
                 <Typography variant="caption" display="block" sx={{ fontSize: '1rem' }}>
                   Partnered for AI Solutions
@@ -156,7 +156,7 @@ const AboutUs = () => {
           <Grid item xs={6} sm={4} md={3}>
             <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', backgroundColor: '#fff', borderRadius: 2, boxShadow: '0px 0px 5px rgba(0,0,0,0.05)' }}>
               <CardContent sx={{ textAlign: 'center', p: 3 }}>
-                <Avatar alt="Expert.ai" src="/static/images/partners/expertai.png" sx={{ width: 100, height: 100, mx: 'auto', mb: 1 }} />
+                <Avatar alt="Expert.ai" src="/ex.png" sx={{ width: 100, height: 100, mx: 'auto', mb: 1 }} />
                 <Typography variant="subtitle1" sx={{ fontSize: '1.3rem' }}>Expert.ai</Typography>
                 <Typography variant="caption" display="block" sx={{ fontSize: '1rem' }}>
                   Partnered for NLU Solutions
@@ -190,19 +190,19 @@ const AboutUs = () => {
           <Grid item xs={6} sm={4} md={3}>
             <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', backgroundColor: '#fff', borderRadius: 2, boxShadow: '0px 0px 5px rgba(0,0,0,0.05)' }}>
               <CardContent sx={{ textAlign: 'center', p: 3 }}>
-                <Avatar alt="John Doe" src="/static/images/avatar/1.jpg" sx={{ width: 100, height: 100, mx: 'auto', mb: 1 }} />
-                <Typography variant="subtitle1" sx={{ fontSize: '1.3rem' }}>John Doe</Typography>
+                <Avatar alt="Bella" src="/women-ceo.jpg" sx={{ width: 100, height: 100, mx: 'auto', mb: 1 }} />
+                <Typography variant="subtitle1" sx={{ fontSize: '1.3rem' }}>Bella</Typography>
                 <Typography variant="caption" display="block" sx={{ fontSize: '1rem' }}>
                   CEO
                 </Typography>
               </CardContent>
             </Card>
           </Grid>
-          {/* Add more team members here */}
+          {/* Add more team members here */}    
           <Grid item xs={6} sm={4} md={3}>
             <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', backgroundColor: '#fff', borderRadius: 2, boxShadow: '0px 0px 5px rgba(0,0,0,0.05)' }}>
               <CardContent sx={{ textAlign: 'center', p: 3 }}>
-                <Avatar alt="Jane Smith" src="/static/images/avatar/2.jpg" sx={{ width: 100, height: 100, mx: 'auto', mb: 1 }} />
+                <Avatar alt="Jane Smith" src="/CEO.jpg" sx={{ width: 100, height: 100, mx: 'auto', mb: 1 }} />
                 <Typography variant="subtitle1" sx={{ fontSize: '1.3rem' }}>Jane Smith</Typography>
                 <Typography variant="caption" display="block" sx={{ fontSize: '1rem' }}>
                   CTO

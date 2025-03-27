@@ -1,17 +1,15 @@
 import React from 'react';
-import { 
-  Typography, 
-  Container, 
-  Box, 
-  Grid, 
-  Card, 
-  CardContent, 
-  CardMedia, 
-  Button, 
+import {
+  Typography,
+  Container,
+  Box,
+  Card,
+  CardContent,
+  CardMedia,
+  Button,
   Link
 } from '@mui/material';
 import { styled } from '@mui/system';
-
 
 const EventButton = styled(Button)(({ theme }) => ({
   backgroundColor: "#ff9800",
@@ -24,22 +22,103 @@ const EventButton = styled(Button)(({ theme }) => ({
 }));
 
 const Vlog = () => {
-  return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh',marginTop: "70px" }}>
 
+  const projectData = [
+    {
+      title: 'AI-Powered Chatbot',
+      description: 'Developed for customer service automation using NLP.',
+      image: '/ai-power.jpg',
+    },
+    {
+      title: 'Predictive Analytics Tool',
+      description: 'Built for market trend analysis using machine learning algorithms.',
+      image: '/Predictive-Analytics.png',
+    },
+  ];
+
+  const eventData = [
+    {
+      title: 'AI Summit 2023',
+      description: 'Exploring AI in Healthcare',
+      image: '/ai-submit.png',
+    },
+    {
+      title: 'AI Tech Conference',
+      description: 'AI in Finance and Banking',
+      image: '/AI-Tech.jpg',
+    },
+  ];
+
+  const upcomingEventData = [
+    {
+      title: 'AI Innovation Summit',
+      description: 'Exploring AI in Education',
+      image: '/innovation.png',
+      callToAction: 'Register Now',
+    },
+    {
+      title: 'AI Tech Expo',
+      description: 'Showcasing AI in Industry',
+      image: '/AI-Tech-expo.jpg',
+      callToAction: 'Register Now',
+    },
+  ];
+
+  const renderSection = (title, data, type = 'project') => {
+    return (
+      <Container maxWidth="lg" sx={{ my: 4 }}>
+        <Typography variant="h4" component="h2" gutterBottom sx={{ color: 'orange', fontSize: '2.5rem', textAlign: 'center' }}>
+          {title}
+        </Typography>
+        {data.map((item, index) => (
+          <Card
+            key={index}
+            sx={{
+              mb: 3, // Margin bottom for spacing between cards
+              backgroundColor: '#fff',
+              borderRadius: 2,
+              boxShadow: '0px 0px 5px rgba(0,0,0,0.05)',
+            }}
+          >
+            <Box sx={{ display: 'flex', flexDirection: index % 2 === 0 ? 'row' : 'row-reverse', alignItems: 'center' }}>
+              <CardMedia
+                component="img"
+                sx={{ width: '50%', height: 'auto' }}
+                image={item.image}
+                alt={item.title}
+              />
+              <CardContent sx={{ textAlign: 'center', p: 3, width: '50%' }}>
+                <Typography variant="subtitle1" sx={{ fontSize: '1.3rem' }}>{item.title}</Typography>
+                <Typography variant="caption" display="block" sx={{ fontSize: '1rem' }}>
+                  {item.description}
+                </Typography>
+                {type === 'upcoming' && (
+                  <EventButton variant="contained">{item.callToAction}</EventButton>
+                )}
+              </CardContent>
+            </Box>
+          </Card>
+        ))}
+      </Container>
+    );
+  };
+
+  return (
+    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', marginTop: "70px" }}>
+      {/* Hero Section */}
       <Box
         sx={{
           backgroundImage: `url(service-white.jpg)`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          minHeight: '300px',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          color: 'orange',
-          textAlign: 'center',
-          paddingX: { xs: 3, md: 6 }, 
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          minHeight: "400px",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          color: "orange",
+          textAlign: "center",
+          paddingX: { xs: 3, md: 6 },
         }}
       >
         <Typography
@@ -55,136 +134,10 @@ const Vlog = () => {
         </Typography>
       </Box>
 
-      {/* Past Projects Gallery */}
-      <Container maxWidth="lg" sx={{ my: 4 }}>
-        <Typography variant="h4" component="h2" gutterBottom sx={{ color: 'orange', fontSize: '2.5rem', textAlign: 'center' }}>
-          Our Latest AI Projects
-        </Typography>
-        <Grid container spacing={2} justifyContent="center">
-          {/* Example Project */}
-          <Grid item xs={6} sm={4} md={3}>
-            <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', backgroundColor: '#fff', borderRadius: 2, boxShadow: '0px 0px 5px rgba(0,0,0,0.05)' }}>
-              <CardMedia
-                component="img"
-                height="140"
-                image="/ai-power.jpg"
-                alt="Project 1"
-              />
-              <CardContent sx={{ textAlign: 'center', p: 3 }}>
-                <Typography variant="subtitle1" sx={{ fontSize: '1.3rem' }}>AI-Powered Chatbot</Typography>
-                <Typography variant="caption" display="block" sx={{ fontSize: '1rem' }}>
-                  Developed for customer service automation using NLP.
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          {/* Add more projects here */}
-          <Grid item xs={6} sm={4} md={3}>
-            <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', backgroundColor: '#fff', borderRadius: 2, boxShadow: '0px 0px 5px rgba(0,0,0,0.05)' }}>
-              <CardMedia
-                component="img"
-                height="140"
-                image="/Predictive-Analytics.png"
-                alt="Project 2"
-              />
-              <CardContent sx={{ textAlign: 'center', p: 3 }}>
-                <Typography variant="subtitle1" sx={{ fontSize: '1.3rem' }}>Predictive Analytics Tool</Typography>
-                <Typography variant="caption" display="block" sx={{ fontSize: '1rem' }}>
-                  Built for market trend analysis using machine learning algorithms.
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        </Grid>
-      </Container>
-
-      {/* Past Events Gallery */}
-      <Container maxWidth="lg" sx={{ my: 4 }}>
-        <Typography variant="h4" component="h2" gutterBottom sx={{ color: 'orange', fontSize: '2.5rem', textAlign: 'center' }}>
-          Past Events Gallery
-        </Typography>
-        <Grid container spacing={2} justifyContent="center">
-          {/* Example Past Event */}
-          <Grid item xs={6} sm={4} md={3}>
-            <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', backgroundColor: '#fff', borderRadius: 2, boxShadow: '0px 0px 5px rgba(0,0,0,0.05)' }}>
-              <CardMedia
-                component="img"
-                height="140"
-                image="/ai-submit.png"
-                alt="Past Event 1"
-              />
-              <CardContent sx={{ textAlign: 'center', p: 3 }}>
-                <Typography variant="subtitle1" sx={{ fontSize: '1.3rem' }}>AI Summit 2023</Typography>
-                <Typography variant="caption" display="block" sx={{ fontSize: '1rem' }}>
-                  Exploring AI in Healthcare
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          {/* Add more past events here */}
-          <Grid item xs={6} sm={4} md={3}>
-            <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', backgroundColor: '#fff', borderRadius: 2, boxShadow: '0px 0px 5px rgba(0,0,0,0.05)' }}>
-              <CardMedia
-                component="img"
-                height="140"
-                image="/AI-Tech.jpg"
-                alt="Past Event 2"
-              />
-              <CardContent sx={{ textAlign: 'center', p: 3 }}>
-                <Typography variant="subtitle1" sx={{ fontSize: '1.3rem' }}>AI Tech Conference</Typography>
-                <Typography variant="caption" display="block" sx={{ fontSize: '1rem' }}>
-                  AI in Finance and Banking
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        </Grid>
-      </Container>
-
-      {/* Upcoming Events Section */}
-      <Container maxWidth="lg" sx={{ my: 4 }}>
-        <Typography variant="h4" component="h2" gutterBottom sx={{ color: 'orange', fontSize: '2.5rem', textAlign: 'center' }}>
-          Upcoming Events
-        </Typography>
-        <Grid container spacing={2} justifyContent="center">
-          {/* Example Upcoming Event */}
-          <Grid item xs={6} sm={4} md={3}>
-            <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', backgroundColor: '#fff', borderRadius: 2, boxShadow: '0px 0px 5px rgba(0,0,0,0.05)' }}>
-              <CardMedia
-                component="img"
-                height="140"
-                image="/innovation.png"
-                alt="Upcoming Event 1"
-              />
-              <CardContent sx={{ textAlign: 'center', p: 3 }}>
-                <Typography variant="subtitle1" sx={{ fontSize: '1.3rem' }}>AI Innovation Summit</Typography>
-                <Typography variant="caption" display="block" sx={{ fontSize: '1rem' }}>
-                  Exploring AI in Education
-                </Typography>
-                <EventButton variant="contained">Register Now</EventButton>
-              </CardContent>
-            </Card>
-          </Grid>
-          {/* Add more upcoming events here */}
-          <Grid item xs={6} sm={4} md={3}>
-            <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', backgroundColor: '#fff', borderRadius: 2, boxShadow: '0px 0px 5px rgba(0,0,0,0.05)' }}>
-              <CardMedia
-                component="img"
-                height="140"
-                image="/AI-Tech-expo.jpg"
-                alt="Upcoming Event 2"
-              />
-              <CardContent sx={{ textAlign: 'center', p: 3 }}>
-                <Typography variant="subtitle1" sx={{ fontSize: '1.3rem' }}>AI Tech Expo</Typography>
-                <Typography variant="caption" display="block" sx={{ fontSize: '1rem' }}>
-                  Showcasing AI in Industry
-                </Typography>
-                <EventButton variant="contained">Register Now</EventButton>
-              </CardContent>
-            </Card>
-          </Grid>
-        </Grid>
-      </Container>
+      {/* Render Sections */}
+      {renderSection("Our Latest AI Projects", projectData)}
+      {renderSection("Past Events Gallery", eventData)}
+      {renderSection("Upcoming Events", upcomingEventData, 'upcoming')}
 
       {/* Call to Action */}
       <Container maxWidth="lg" sx={{ my: 4 }}>
@@ -199,7 +152,7 @@ const Vlog = () => {
         </Link>
       </Container>
     </Box>
-  )
-}
+  );
+};
 
 export default Vlog;
