@@ -29,7 +29,7 @@ import ArticleIcon from "@mui/icons-material/Article";
 import Modal from "./Modal"; 
 import PricingPlans from "./PricingPlans"; 
 import { Link } from "react-router-dom";
-
+import Layout from '../Layout';
 
 const ServiceCard = styled(Box)(({ theme }) => ({
   padding: theme.spacing(3),
@@ -139,6 +139,7 @@ const Services = () => {
   ];
 
   return (
+    <Layout>
     <Box
       sx={{
         display: "flex",
@@ -500,6 +501,7 @@ const Services = () => {
         </Box>
       </Box>
     </Box>
+    </Layout>
   );
 };
 

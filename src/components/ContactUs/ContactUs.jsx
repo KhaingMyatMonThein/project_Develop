@@ -4,6 +4,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import axios from 'axios';
+import Layout from '../Layout';
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -58,6 +59,7 @@ const ContactUs = () => {
   };
 
   return (
+    <Layout>
     <Container sx={{ mt: '100px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 
       <Box sx={{ textAlign: 'center', my: 4, maxWidth: '800px' }}>
@@ -217,6 +219,7 @@ const ContactUs = () => {
         </Grid>
       </Box>
     </Container>
+    </Layout>
   );
 };
 

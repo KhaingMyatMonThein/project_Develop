@@ -23,6 +23,7 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import GoogleIcon from '@mui/icons-material/Google';
 import axios from 'axios';
+import Layout from '../Layout';
 
 const ReviewsPage = () => {
   const [reviews, setReviews] = useState([]);
@@ -95,6 +96,7 @@ const ReviewsPage = () => {
   };
 
   return (
+    <Layout>
     <Container maxWidth="lg" sx={{ mt: 4, fontFamily: 'Arial, sans-serif' }}>
 
       {/* Review Blog Section */}
@@ -244,6 +246,7 @@ const ReviewsPage = () => {
 
    
     </Container>
+    </Layout>
   );
 };
 

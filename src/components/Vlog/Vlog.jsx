@@ -10,6 +10,7 @@ import {
   Link
 } from '@mui/material';
 import { styled } from '@mui/system';
+import Layout from '../Layout';
 
 const EventButton = styled(Button)(({ theme }) => ({
   backgroundColor: "#ff9800",
@@ -66,6 +67,7 @@ const Vlog = () => {
 
   const renderSection = (title, data, type = 'project') => {
     return (
+      <Layout>
       <Container maxWidth="lg" sx={{ my: 4 }}>
         <Typography variant="h4" component="h2" gutterBottom sx={{ color: 'orange', fontSize: '2.5rem', textAlign: 'center' }}>
           {title}
@@ -100,10 +102,12 @@ const Vlog = () => {
           </Card>
         ))}
       </Container>
+      </Layout>
     );
   };
 
   return (
+    <Layout>
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', marginTop: "70px" }}>
       {/* Hero Section */}
       <Box
@@ -152,6 +156,7 @@ const Vlog = () => {
         </Link>
       </Container>
     </Box>
+    </Layout>
   );
 };
 

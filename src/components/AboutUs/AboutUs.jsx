@@ -14,6 +14,7 @@ import { styled } from '@mui/system';
 import PeopleIcon from '@mui/icons-material/People'; 
 import LightbulbIcon from '@mui/icons-material/Lightbulb'; 
 import ThumbUpIcon from '@mui/icons-material/ThumbUp'; 
+import Layout from '../Layout';
 
 const ServiceButton = styled(Button)(({ theme }) => ({
   backgroundColor: "#ff9800",
@@ -37,6 +38,7 @@ const AboutUs = () => {
   }, []);
 
   return (
+    <Layout>
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', backgroundColor: '#f7f7f7' }}>
   
       <Box
@@ -213,6 +215,7 @@ const AboutUs = () => {
         </Grid>
       </Container>
     </Box>
+    </Layout>
   )
 }
 
